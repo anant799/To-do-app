@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css"></link>
+        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    </head>
+
+
+    <body>
+        <div id="div_0">
+            <span id="title2"><strong>Title</strong></span>
+            <span id="title1"><strong>Task Date</strong></span>
+            <span id="title3"><strong>Task Start Time</strong></span>
+            <span id="title4"><strong>Task Deadline</strong></span>
+        </div>
+        <div id="div_1">
+            <span id="heading"><strong>To-Do APP</strong></span>
+            
+            <input type="text" class="text_field" id="text_field" placeholder="Enter the Title">
+            <input type="date" class="date_field" id="date_field">
+            <input type="time" class="date_field" id="timer_start_time">
+            <input type="datetime-local" class="timer_time" id="timer_time">
+            <button class="button_field" id="date_button">Submit</button>
+        </div>
+
+<!--
+<script>
+    function func1(){
+    let x=document.getElementById("date_field").value;
+    window.alert(x);
+    }
+</script>
+-->
+
+        <h2 class="present">Active</h2>
+        <h2 class="future">Upcoming</h2>
+        <h2 class="past">Passed</h2>
+
+        <div id="root">
+            <div class="present_div" id="div_present"></div>
+            <div class="future_div" id="div_future"></div>
+            <div class="past_div" id="div_past"></div>
+        </div>
+
+<!--
+    <div class="present" id="div_present">
+        <h1>Present</h1>
+    </div>
+    <div class="past" id="div_past">
+        <h1>Past</h1>
+    </div>
+
+    <div class="future" id="div_future">
+        <h1>Future</h1>
+
+-->
+
+        <script type="text/javascript"  src="code_ts1.js"></script>
+</body>
+</html>
