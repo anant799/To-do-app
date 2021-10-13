@@ -571,6 +571,7 @@ let present_array=[]
 let past_array=[]
 let future_array=[]
 let xxx=[]
+let yyy=[]
 button_field_js.addEventListener("click",func_1);
 
 function func_1(){
