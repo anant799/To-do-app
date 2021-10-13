@@ -28,15 +28,17 @@ const Card=(props:details)=>
             text:inputvalue
         }]);
     }
+    const [displayData,setDisplayData]=useState(props.data.title);
+    useEffect(()=>{  if(displayData.length>15)
+        setDisplayData(`${displayData.substring(0,15)}.....`);},[]);
 
-
-
+    const [clockData,setClockData]=useState(props.data.goal_start_time);
 return(
     <>
     <div className="block">
-    <h4 className="item1">{props.data.title}</h4>
+    <h4 className="item1">{displayData}</h4>
     <div className="item2">{props.data.date}</div>
-    <Clock data={props.data.goal_start_time}/>
+    <Clock data={clockData}/>
     <div className="item4">{}</div>
     <InputApp class="item5" text="text" placeholder="Enter the step" setInputvalue={setInputvalue}/>
     <Button text="Add Steps" class="button_field item6" addSubCard={addSubCard}/>

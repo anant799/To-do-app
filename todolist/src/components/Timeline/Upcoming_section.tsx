@@ -16,7 +16,8 @@ return(
     <div className="future_div" id="div_future">
         {
             props.data.map((todo) => (
-                <Card data={todo}/>
+                    <Card data={todo}/>
+                
             ))
         }
     

@@ -18,17 +18,17 @@ const [inputValue,setInputValue]=useState({
 });
 
 const [active,setActive]=useState([{
-    title:'anant',
-    date:'29-07-2021',
-    goal_start_time:123,
-    deadline_time:456
+  title:'anant',
+  date:'29-07-2021',
+  goal_start_time:123,
+  deadline_time:456
 }]);
 
 const [upcoming,setUpcoming]=useState([{
-    title:'anant',
-    date:'29-07-2021',
-    goal_start_time:123,
-    deadline_time:456
+  title:'anant',
+  date:'29-07-2021',
+  goal_start_time:123,
+  deadline_time:456
 }]);
 
 const [passed,setPassed]=useState([{
