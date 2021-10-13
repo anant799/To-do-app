@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Button from '../Button/Button';
 import InputApp from '../Layer2/InputApp';
 import ReactDOM from 'react-dom';
+import Modal from '../Modal/Modal';
 
 interface details{
     class:string;
@@ -12,30 +13,16 @@ interface details{
 
 const SubCard=(props:details)=>{
 
-    const [edittextarea,setEdittextarea]=useState('');
-
-    const modal_dialog=()=>{
-        ReactDOM.render(
-            <>
-            <div className="inner_win">
-                <h1 className="win_title">{props.data}</h1>
-                <textarea className="win_desc" onChange={(e)=>{
-                    setEdittextarea(e.target.value)}
-                    }>{edittextarea}</textarea>
-            </div>
-            </>,
-            document.getElementById('root')
-          );
-            
-        }
+    const [show,setShow]=useState(false);
 
     return(
             <>
-            <div className={props.class} onClick={modal_dialog}>
+            <div className={props.class} onClick={()=>{setShow(true);}}>
             <p className="item8">{props.data}</p>
-            <InputApp text="checkbox" class="checkbox_button"/>
-            <Button class="delbutton" text="X"/>
+            <InputApp text="checkbox" class="checkbox_button"  />
+            <Button class="delbutton" text="X"  />
             </div>
+            <Modal onSaveButton={()=>{setShow(false);}} show={show} data={props.data}/>
             </>
         );
 }

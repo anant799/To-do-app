@@ -243,9 +243,13 @@ margin-bottom: 0.5em;
 
 .new_win{
   display: flex;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
+  right:0;
+  bottom:0;
+  align-items:center;
+  justify-content: center;
   background-color: rgba(0, 0, 0, 0.8);
   width: 100%;
   height: 100%;
