@@ -6,7 +6,7 @@ import Layer3 from './Layer3/Layer3';
 import Upcoming_section from './Timeline/Upcoming_section';
 import display_date_time from './Layer2/display_date_time';
 import Active_section from './Timeline/Active_section';
-
+import {Card_data} from './Interface';
 
 const App=()=> {
 
@@ -20,15 +20,15 @@ const [inputValue,setInputValue]=useState({
 const [active,setActive]=useState([{
   title:'anant',
   date:'29-07-2021',
-  goal_start_time:123,
-  deadline_time:456
+  goal_start_time:123849888,
+  deadline_time:123849888
 }]);
 
 const [upcoming,setUpcoming]=useState([{
   title:'anant',
   date:'29-07-2021',
-  goal_start_time:123,
-  deadline_time:456
+  goal_start_time:123849888,
+  deadline_time:123849888
 }]);
 
 const [passed,setPassed]=useState([{
@@ -57,7 +57,7 @@ const addCard=()=>
     let goal_start_timer=new Date(d1).getTime();
   
     let deadline_timer=new Date(inputValue.datetime).getTime();
-
+    // console.log(goal_start_timer-current_timer);
 
     if(goal_start_timer<=current_timer && current_timer<deadline_timer) //present
     {

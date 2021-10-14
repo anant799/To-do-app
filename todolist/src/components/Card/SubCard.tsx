@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/heading-has-content */
-import React from 'react';
+import React, { ButtonHTMLAttributes, ChangeEventHandler ,MouseEvent} from 'react';
 import { useState } from 'react';
 import Button from '../Button/Button';
 import InputApp from '../Layer2/InputApp';
@@ -18,14 +18,19 @@ const SubCard=(props:details)=>{
     const [displayData,setDisplayData]=useState(props.data);
     useEffect(()=>{  if(displayData.length>15)
         setDisplayData(displayData.substring(0,15)+"     ");},[]);
-  
-
+        
+    const inputappControl=(e:MouseEvent<HTMLInputElement>)=>{
+        e.stopPropagation();    
+    }
+    const deletebuttonControl=(e:MouseEvent<HTMLButtonElement>)=>{
+        e.stopPropagation();       
+    }
     return(
             <>
-            <div className={props.class} onClick={()=>{setShow(true);}}>
+            <div className={props.class} onClick={()=>{setShow(true);console.log('parent')}}>
             <p className="item8">{displayData}</p>
-            <InputApp text="checkbox" class="checkbox_button"  />
-            <Button class="delbutton" text="X"  />
+            <InputApp text="checkbox" class="checkbox_button" inputappControl={(e:MouseEvent<HTMLInputElement>)=>{inputappControl(e);}} />
+            <Button class="delbutton" text="X" deletebuttonControl={(e:MouseEvent<HTMLButtonElement>)=>{deletebuttonControl(e);}} />
             </div>
             <Modal onSaveButton={(textareaValue:string)=>{
                 setShow(false);
