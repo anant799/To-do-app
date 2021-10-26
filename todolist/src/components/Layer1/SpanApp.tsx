@@ -1,10 +1,10 @@
-import React from 'react';
+import {FunctionComponent} from 'react';
 
 interface details{
     name:string;
     id:string;
 }
-const SpanApp=(props:details)=>
+const SpanApp:FunctionComponent<details>=(props:details)=>
 {
 return(
 <>

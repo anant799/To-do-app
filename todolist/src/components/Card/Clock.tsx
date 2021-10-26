@@ -1,17 +1,31 @@
-import React, { useState } from 'react';
+import React, { FunctionComponent,useState } from 'react';
 import { useEffect } from 'react';
  
 interface details{
     data:number;
+    deleteUpcomingId:()=>void;
 }
 
-const Clock=(props:details)=>{
+const Clock:FunctionComponent<details>=(props:details)=>{
+  
     const {data}=props;
+
     const [days,setDays]=useState(Math.floor(data / (1000 * 60 * 60 * 24)));
     const [hours,sethours]=useState(Math.floor((data% (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
     const [mins,setmins]=useState(Math.floor((data% (1000 * 60 * 60)) / (1000 * 60)));
     const [secs,setsecs]=useState(Math.floor((data% (1000 * 60 )) / (1000 )));
-
+    useEffect(()=>{
+        setDays(Math.floor(data / (1000 * 60 * 60 * 24)));
+    },[props.data]);
+    useEffect(()=>{
+        sethours(Math.floor((data% (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
+    },[props.data]);
+    useEffect(()=>{
+        setmins(Math.floor((data% (1000 * 60 * 60)) / (1000 * 60)));
+    },[props.data]);
+    useEffect(()=>{
+        setsecs(Math.floor((data% (1000 * 60 )) / (1000 )));
+    },[props.data]);
     useEffect(()=>{
         let interval=setInterval(()=>{
            
@@ -32,7 +46,10 @@ const Clock=(props:details)=>{
                 }
                 else{
                     if(days===0)
+                    {
                     clearInterval(interval);
+                        props.deleteUpcomingId();
+                    }
                     else
                     {
                         setDays(days-1);

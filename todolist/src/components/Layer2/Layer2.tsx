@@ -1,14 +1,14 @@
 /* eslint-disable react/jsx-pascal-case */
-import React, { useState } from 'react';
+import React, { useState,FunctionComponent } from 'react';
 import Button from '../Button/Button';
 import SpanApp from '../Layer1/SpanApp';
 import InputApp from './InputApp';
 
 
 interface details{
-addCard:(arg0:{text:string,date:string,time:string,datetime:string})=>void;
+addCard:(arg0:{text:string,date:string,time:string,datetime:string},arg1:number)=>void;
 }
-const Layer2=(props:details)=>{
+const Layer2:FunctionComponent<details>=(props:details)=>{
 
 const [inputValue_text, setInputValue_text] = useState('');
 
@@ -28,7 +28,11 @@ const inputValue={
 //  console.log(inputValue);
 
 const call_button=()=>{
-props.addCard(inputValue);
+
+    if(inputValue.text!==''&&inputValue.date!==''&&inputValue.datetime!==''&&inputValue.time!=='')
+        props.addCard(inputValue,new Date().getTime());
+    else
+    alert("Fields are Empty");
 }
 return(
     <>

@@ -1,16 +1,17 @@
 /* eslint-disable react/jsx-pascal-case */
 
-import React, { ButtonHTMLAttributes, MouseEvent } from 'react';
+import React, { FunctionComponent, MouseEvent } from 'react';
 
 interface details{
     text:string;
     class:string;
     call_button?:()=>void;
     addSubCard?:()=>void;
-    deletebuttonControl?:(e: MouseEvent<HTMLButtonElement>) => void
+    deletebuttonControl?:(e: MouseEvent<HTMLButtonElement>) => void;
+    disable?:boolean;
 }
 
-const Button=(props:details)=>
+const Button:FunctionComponent<details>=(props:details)=>
 {
     return(
         <>
@@ -22,7 +23,9 @@ const Button=(props:details)=>
             if(props.deletebuttonControl!=null)
             props.deletebuttonControl(e);
         }} 
-        className={props.class} >
+        className={props.class} 
+        disabled={props.disable?true:false}
+        >
             {props.text}
         </button>
         </>

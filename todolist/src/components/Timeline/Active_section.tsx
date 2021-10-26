@@ -1,22 +1,29 @@
-import React from 'react';
+import {FunctionComponent} from 'react';
 import Card from '../Card/Card';
 
 interface details
 {
-data:{ title:string,
+data:{id:number, title:string,
     date:string,
     goal_start_time:number,
-    deadline_time:number}[];
+    deadline_time:number,
+    cards:{id:number,text:string,textarea_data:string,checkbox_value:boolean}[],
+    disable:boolean,
+    createdAt:number}[];
+    deleteActiveId:(arg1:number,arg2:{id:number,text:string,textarea_data:string,checkbox_value:boolean}[])=>void;
+    addSubcard?:(arg1:number,arg2:{id:number,text:string,textarea_data:string,checkbox_value:boolean})=>void;
+    addtextarea?:(arg1:number,arg2:{id:number,text:string,textarea_data:string,checkbox_value:boolean})=>void;
+    updatecheckboxvalue?:(arg1:number,arg2:{id:number,text:string,textarea_data:string,checkbox_value:boolean})=>void;
 }
 
-const Active_section=(props:details)=>
+const Active_section:FunctionComponent<details>=(props:details)=>
 {
 return(
     <>
     <div className="present_div" id="div_present">
     {
             props.data.map((todo) => (
-                <Card data={todo}/>
+                <Card data={todo} deleteUpcomingId={props.deleteActiveId} addtextarea={props.addtextarea}  updatecheckboxvalue={props.updatecheckboxvalue}/>
             ))
         }
     </div>
