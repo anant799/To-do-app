@@ -103,6 +103,7 @@ const Card:FunctionComponent<details>=(props:details)=>
         // console.log(items);
         setSubcarddata(items);
         // console.log("b",items);
+        setChecking(prev=>!prev);
         }
         const [a,setA]=useState(props.data.id);
         useEffect(()=>{

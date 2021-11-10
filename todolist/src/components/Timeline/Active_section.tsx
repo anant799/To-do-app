@@ -10,7 +10,7 @@ data:{id:number, title:string,
     cards:{id:number,text:string,textarea_data:string,checkbox_value:boolean}[],
     disable:boolean,
     createdAt:number}[];
-    deleteActiveId:(arg1:number,arg2:{id:number,text:string,textarea_data:string,checkbox_value:boolean}[])=>void;
+    deleteUpcomingId:(arg1:number,arg2:{id:number,text:string,textarea_data:string,checkbox_value:boolean}[])=>void;
     addSubcard?:(arg1:number,arg2:{id:number,text:string,textarea_data:string,checkbox_value:boolean})=>void;
     addtextarea?:(arg1:number,arg2:{id:number,text:string,textarea_data:string,checkbox_value:boolean})=>void;
     updatecheckboxvalue?:(arg1:number,arg2:{id:number,text:string,textarea_data:string,checkbox_value:boolean})=>void;
@@ -23,7 +23,12 @@ return(
     <div className="present_div" id="div_present">
     {
             props.data.map((todo) => (
-                <Card data={todo} deleteUpcomingId={props.deleteActiveId} addtextarea={props.addtextarea}  updatecheckboxvalue={props.updatecheckboxvalue}/>
+                <Card 
+                data={todo} 
+                deleteUpcomingId={props.deleteUpcomingId} 
+                addSubcard={props.addSubcard} 
+                addtextarea={props.addtextarea}  
+                updatecheckboxvalue={props.updatecheckboxvalue}/>
             ))
         }
     </div>

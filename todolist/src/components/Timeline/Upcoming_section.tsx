@@ -24,7 +24,12 @@ return(
     <div className="future_div" id="div_future">
         {
             props.data.map((todo) => (
-                    <Card data={todo} deleteUpcomingId={props.deleteUpcomingId} addSubcard={props.addSubcard} addtextarea={props.addtextarea} updatecheckboxvalue={props.updatecheckboxvalue}/>
+                    <Card 
+                    data={todo} 
+                    deleteUpcomingId={props.deleteUpcomingId} 
+                    addSubcard={props.addSubcard} 
+                    addtextarea={props.addtextarea}
+                    updatecheckboxvalue={props.updatecheckboxvalue}/>
                 
             ))
         }
